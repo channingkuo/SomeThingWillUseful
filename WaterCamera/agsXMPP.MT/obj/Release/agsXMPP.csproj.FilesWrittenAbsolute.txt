@@ -1,0 +1,4 @@
+/Users/Channing/Documents/iOS_HMS/agsXMPP.MT/obj/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/Channing/Documents/iOS_HMS/agsXMPP.MT/obj/Release/optimized/
+/Users/Channing/Documents/iOS_HMS/bin/agsXMPP.dll
+/Users/Channing/Documents/iOS_HMS/agsXMPP.MT/obj/Release/agsXMPP.dll

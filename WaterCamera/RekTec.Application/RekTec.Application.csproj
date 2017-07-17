@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D79D6688-C641-4045-96D5-3977C043BD04}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RekTec.Application</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>RekTec.Application</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchProfiling>true</MtouchProfiling>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App\AppDelegate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MenuDataRepository.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="ViewModels\ChildMenuViewModel.cs" />
+    <Compile Include="ViewModels\ParentMenuViewModel.cs" />
+    <Compile Include="ViewModels\UiMenu.cs" />
+    <Compile Include="Views\ApplicationViewController.cs" />
+    <Compile Include="Views\HomeViewController.cs" />
+    <Compile Include="Views\LoginViewController.cs" />
+    <Compile Include="ViewModels\MobileSystemMenuModel.cs" />
+    <Compile Include="ViewModels\SystemMenuBadgeModel.cs" />
+    <Compile Include="ViewModels\SystemMenuSettingViewModel.cs" />
+    <Compile Include="Views\ChatListTableViewCell.cs" />
+    <Compile Include="Views\ChatListViewController.cs" />
+    <Compile Include="App\XrmNavigationController.cs" />
+    <Compile Include="Views\CustomerCameraViewController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.MT">
+      <HintPath>..\lib\SQLite.MT.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="tingyunApp.iOS">
+      <HintPath>..\lib\tingyunApp.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-568h%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-667h%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default-736h%403x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default%402x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images.xcassets\AppIcons.appiconset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RekTec.Contacts\RekTec.Contacts.csproj">
+      <Project>{F595C2F6-7F8C-43C7-9938-BD38D8F04094}</Project>
+      <Name>RekTec.Contacts</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Corelib\RekTec.Corelib.csproj">
+      <Project>{A0EB2501-9DF4-46F9-B105-E7EBBE76D6FA}</Project>
+      <Name>RekTec.Corelib</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Messages.PushNotification\RekTec.Messages.PushNotification.csproj">
+      <Project>{4C32E195-28E2-4D04-9649-897139FA56FF}</Project>
+      <Name>RekTec.Messages.PushNotification</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Messages\RekTec.Messages.csproj">
+      <Project>{2A7EB7F5-AA2A-4448-ABEA-7728B4DDD770}</Project>
+      <Name>RekTec.Messages</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.MyProfile\RekTec.MyProfile.csproj">
+      <Project>{E73B6F0E-FA3F-4E96-B75A-483E23E42BA7}</Project>
+      <Name>RekTec.MyProfile</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Version\RekTec.Version.csproj">
+      <Project>{8B5723B9-CDCC-4526-B12D-27E3E58CC75D}</Project>
+      <Name>RekTec.Version</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Chat\RekTec.Chat.csproj">
+      <Project>{8C35DA04-039D-4BF2-8A29-DA27568749AF}</Project>
+      <Name>RekTec.Chat</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

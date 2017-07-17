@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{5A427701-7CDD-4A7F-AC08-8561F775DFB0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RekTec.Application/Views/CustomerCameraViewController.cs">
+    <Files>
+      <File FileName="RekTec.Application/Views/LoginViewController.cs" Line="503" Column="7" />
+      <File FileName="RekTec.Corelib/Utils/OCRVideoUtils.cs" Line="113" Column="38" />
+      <File FileName="RekTec.Application/Views/CustomerCameraViewController.cs" Line="271" Column="35" />
+      <File FileName="RekTec.Corelib/Services/CLLocationManagerService.cs" Line="96" Column="28" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="iOS_HMS" expanded="True" selected="True">
+            <Node name="RekTec.Application" expanded="True">
+              <Node name="Views" expanded="True" />
+            </Node>
+            <Node name="RekTec.Application.Homeinns" expanded="True" />
+            <Node name="RekTec.Corelib" expanded="True">
+              <Node name="Services" expanded="True" />
+              <Node name="Utils" expanded="True" />
+            </Node>
+            <Node name="RekTec.Version" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.RekTec.Application.Homeinns PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.7ea5e9ba4791cca68fcdd9c39a655ee8ebbd94f8" />
+  <MultiItemStartupConfigurations />
+</Properties>

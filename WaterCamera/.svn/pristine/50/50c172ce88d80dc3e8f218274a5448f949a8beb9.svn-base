@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repositories>
+  <repository path="../RekTec.Chat/packages.config" />
+  <repository path="../RekTec.Corelib/packages.config" />
+  <repository path="../RekTec.Messages/packages.config" />
+  <repository path="..\RekTec.Chat\packages.config" />
+  <repository path="..\RekTec.Messages\packages.config" />
+</repositories>

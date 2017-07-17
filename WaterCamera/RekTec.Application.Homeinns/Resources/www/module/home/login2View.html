@@ -1,0 +1,36 @@
+<style>
+    .list {margin-bottom: 10px;}
+</style>
+<ion-view view-title="登陆" class="stable-bg">
+    <ion-content>
+        <div style="width:{{logoWidth}}px;">
+            <img style="width:{{logoWidth}}px;" src="./asset/img/login_top.png">
+        </div>
+        <div class="list">
+            <label class="item item-input" style="padding-left: 15px;">
+                <img src="./asset/img/login_user.png" style="width: 20px;">
+                <input ng-model="vm.userName" type="text" placeholder="请输入账号" style="margin-left: 20px;font-size: 16px;"/>
+            </label>
+            <label class="item item-input" style="padding-left: 15px;">
+                <img src="./asset/img/login_password.png" style="width: 20px;">
+                <input ng-model="vm.password" type="password" placeholder="请输入密码" style="margin-left: 20px;font-size: 16px;"/>
+            </label>
+            <label class="item item-input" style="padding-left: 15px;">
+                <img ng-click="refreshCode()" src="data:image/gif;base64,{{vm.verifyStr0}}" />
+                <input ng-model="vm.checkcode" type="text" placeholder="请输入验证码" style="margin-left: 20px;font-size: 16px;"/>
+            </label>
+        </div>
+        <div class="row">
+            <a class="col" style="padding-left: 10px;" ng-click="savePassword()">
+                <img ng-if="vm.isSavePassword" src="./asset/img/login_checkbox_on.png" style="width: 20px;vertical-align:text-bottom">
+                <img ng-if="!vm.isSavePassword" src="./asset/img/login_checkbox_off.png" style="width: 20px;vertical-align:text-bottom">
+                <span style="margin-left: 10px;font-size: 16px;">记住密码</span>
+            </a>
+            <div class="col pull-right">
+                <img class="pull-right" src="./asset/img/login_setting.png" style="width: 20px;vertical-align:text-bottom">
+                <a href="#" ng-click="setServerAddress()" class="pull-right" style="margin-left: 10px;font-size: 16px;">设置服务器地址</a>
+            </div>
+        </div>
+        <button class="button button-positive button-block" ng-click="login()">登陆</button>
+    </ion-content>
+</ion-view>

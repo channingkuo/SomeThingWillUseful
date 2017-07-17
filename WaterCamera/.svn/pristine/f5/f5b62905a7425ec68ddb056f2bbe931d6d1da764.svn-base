@@ -1,0 +1,20 @@
+<ion-nav-bar class="bar-stable">
+    <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i>应用
+    </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-view title="应用">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="menu in vm.menus track by menu.MenuCode" class="item-icon-right">
+                <h2><!--/rujia-->
+                    <a ng-href="/#/{{menu.MenuUrl}}" style="text-decoration: none;">
+                        <img ng-src="data:image/png;base64,{{menu.MenuIcon}}" style="vertical-align:bottom;height:1.2em;padding-right:10px;"/>
+                    {{menu.MenuName}}</a>
+                </h2>
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,145 @@
+#region 类文件描述
+/**********
+Copyright @ 苏州瑞泰信息技术有限公司 All rights reserved. 
+****************
+创建人   : Joe Song
+创建时间 : 2015-04-23 
+说明     : 消息推送对外提供服务的类，所有使用消息推送的功能模块应该使用此类，不应该使用具体的Provider类
+****************/
+#endregion
+
+using System;
+using System.Diagnostics;
+using Foundation;
+using RekTec.Corelib.Utils;
+using RekTec.Messages.PushNotification.ViewModels;
+using RekTec.Messages.Services;
+using RekTec.Messages.ViewModels;
+using UIKit;
+
+namespace RekTec.Messages.PushNotification.Services
+{
+	public class PushService : IPushProvider
+	{
+		private IPushProvider _provider;
+
+		public PushService ()
+		{
+			_provider = new JPushProvider ();//暂时默认使用极光
+		}
+
+		/// <summary>
+		/// 向极光的服务器器注册推送服务，应该在AppDelegate的FinishedLaunching 方法中调用
+		/// </summary>
+		/// <param name="app"></param>
+		/// <param name="options"></param>
+		public void RegisterNotification (UIApplication app, NSDictionary options)
+		{
+			try {
+				if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+					var types = UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert;
+					app.RegisterUserNotificationSettings (
+						UIUserNotificationSettings.GetSettingsForTypes (types, null)
+					);
+					app.RegisterForRemoteNotifications ();
+
+				} else {
+					var types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert;
+					app.RegisterForRemoteNotificationTypes (types);
+
+				}
+
+				_provider.RegisterNotification (app, options);
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+
+		}
+
+
+		/// <summary>
+		/// 处理接收到的消息，应该在AppDelete的ReceivedRemoteNotification和FinishedLaunching中调用
+		/// </summary>
+		/// <param name="application"></param>
+		/// <param name="userInfo"></param>
+		public void HandleRemoteNotification (UIApplication application, NSDictionary userInfo)
+		{
+			try {
+				if (application == null || userInfo == null) return;
+
+				var msg = PushMessageViewModel.TryParse (userInfo);
+				if (msg == null || msg.ObjectType == null) return;
+				var typeName = NotifactionTypeName.GetTypeName (msg.ObjectType);
+
+				Debug.Write (string.Format ("content ={0}, badge={1}, sound={2}, id={3},type={4}", msg.Content, msg.Badge, msg.Sound, msg.ObjectId, msg.ObjectType));
+
+				//MessagesDataRepository.AddOrUpdate(new ChatListViewModel
+				//{
+				//    LastMessageContent = msg.Content,
+				//    ChatListId = msg.ObjectType,
+				//    ChatListName = typeName,
+				//    LastMessageDateTime = DateTime.Now,
+				//    ListType = ChatListType.Private,
+				//    UnReadCount = 0
+				//});
+
+				//Debug.Write("Xrm Push Service Message: " + typeName + " : " + msg.Content);
+
+				if (application.ApplicationState == UIApplicationState.Active && !string.IsNullOrWhiteSpace (msg.Content)) {
+					var alertAction = UIAlertController.Create ("推送消息", msg.Content, UIAlertControllerStyle.Alert);
+					alertAction.AddAction (UIAlertAction.Create ("确认", UIAlertActionStyle.Default, alert => { }));
+					application.KeyWindow.RootViewController.PresentViewController (alertAction, true, null);
+				} else {
+					_provider.HandleRemoteNotification (application, userInfo);
+				}
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+
+		}
+
+		/// <summary>
+		/// 向服务器注册设备的DeviceToken，应该在AppDelegate的RegisteredForRemoteNotifications调用
+		/// </summary>
+		/// <param name="application"></param>
+		/// <param name="deviceToken"></param>
+		public void RegisterDeviceToken (UIApplication application, NSData deviceToken)
+		{
+			try {
+				Debug.Write ("Xrm Push Service deviceToken: " + deviceToken);
+				_provider.RegisterDeviceToken (application, deviceToken);
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+
+		}
+
+		/// <summary>
+		/// 向应用服务器注册用户，应该在xrm
+		/// </summary>
+		public void Login (string userId, string password)
+		{
+			try {
+				Debug.Write ("Xrm Push Service UserId: " + userId);
+				Debug.Write ("Xrm Push Service password: " + password);
+				_provider.Login (userId, password);
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+
+		}
+
+		public void SetBadge (UIApplication app, int badges)
+		{
+			try {
+				if (app != null) {
+					app.ApplicationIconBadgeNumber = badges;
+				}
+
+				_provider.SetBadge (app, badges);
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+		}
+	}
+}

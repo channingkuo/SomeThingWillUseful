@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C35DA04-039D-4BF2-8A29-DA27568749AF}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RekTecChat</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>RekTecChat</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ChatAppSetting.cs" />
+    <Compile Include="DataRepository\ChatAppSetting.cs" />
+    <Compile Include="DataRepository\ChatContactDataCache.cs" />
+    <Compile Include="DataRepository\ChatDataRepository.cs" />
+    <Compile Include="DataRepository\ChatSessionDataCache.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ChatBaseMessageService.cs" />
+    <Compile Include="Services\ChatClient.cs" />
+    <Compile Include="Services\ChatConnectionService.cs" />
+    <Compile Include="Services\ChatContactService.cs" />
+    <Compile Include="Services\ChatFileMessageService.cs" />
+    <Compile Include="Services\ChatNotificationService.cs" />
+    <Compile Include="Services\ChatRoomService.cs" />
+    <Compile Include="Services\ChatTextMessageService.cs" />
+    <Compile Include="ViewModels\ChatFileViewModel.cs" />
+    <Compile Include="ViewModels\ChatRoomMemberViewModel.cs" />
+    <Compile Include="ViewModels\ChatRoomViewModel.cs" />
+    <Compile Include="Views\ChatList\ChatListTableViewCell.cs" />
+    <Compile Include="Views\ChatList\ChatListViewController.cs" />
+    <Compile Include="Views\Chat\ChatBubbleDateTimeElement.cs" />
+    <Compile Include="Views\Chat\ChatBubbleMessageElement.cs" />
+    <Compile Include="Views\Chat\ChatMessageBaseCell.cs" />
+    <Compile Include="Views\Chat\ChatMessageImageCell.cs" />
+    <Compile Include="Views\Chat\ChatMessageTextCell.cs" />
+    <Compile Include="Views\Chat\ChatViewController.cs" />
+    <Compile Include="Views\Chat\EmojiUtil.cs" />
+    <Compile Include="Views\Common\ChatBaseViewController.cs" />
+    <Compile Include="Views\Common\DialogElements\AvatarElement.cs" />
+    <Compile Include="Views\Common\DialogElements\ProfileElement.cs" />
+    <Compile Include="Views\Common\DialogElements\RoomMemberElement.cs" />
+    <Compile Include="Views\Common\ImageViews\ClickableImageView.cs" />
+    <Compile Include="Views\Common\ImageViews\FullScreenImageView.cs" />
+    <Compile Include="Views\Common\ImageViews\ScrollImageView.cs" />
+    <Compile Include="Views\Contact\ContactChooseTableViewCell.cs" />
+    <Compile Include="Views\Contact\ContactChooseViewController.cs" />
+    <Compile Include="Views\Contact\ContactDetailViewController.cs" />
+    <Compile Include="Views\Contact\ContactsViewController.cs" />
+    <Compile Include="Views\Contact\RoomDetailViewController.cs" />
+    <Compile Include="Views\Contact\RoomNameEditViewController.cs" />
+    <Compile Include="WebApi\AuthUser.cs" />
+    <Compile Include="WebApi\UiAvatar.cs" />
+    <Compile Include="WebApi\UiIMConfig.cs" />
+    <Compile Include="WebApi\WebApiFacade.cs" />
+    <Compile Include="XmppElement\Apns.cs" />
+    <Compile Include="XmppElement\ApnsIq.cs" />
+    <Compile Include="XmppElement\ChatFileCloseElement.cs" />
+    <Compile Include="XmppElement\ChatFileOpenElement.cs" />
+    <Compile Include="XmppElement\ChatFilePackageElement.cs" />
+    <Compile Include="XmppElement\XmppMessageBody.cs" />
+    <Compile Include="Services\ContactClient.cs" />
+    <Compile Include="WebApi\UserModel.cs" />
+    <Compile Include="WebApi\UiMenu.cs" />
+    <Compile Include="WebApi\UserInfoModel.cs" />
+    <Compile Include="WebApi\UiPhoneModel.cs" />
+    <Compile Include="WebApi\UiPasswordModel.cs" />
+    <Compile Include="WebApi\UiAvatarModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beep.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.MT">
+      <HintPath>..\lib\SQLite.MT.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contact_default_avatar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\room_default_avatar%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chat_receiver_bg%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chat_sender_bg%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_camera%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_cameraSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_location%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_locationSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_photo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_photoSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_video%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_colorMore_videoSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_face%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_faceSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_keyboard%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_keyboardSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_more%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_moreSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_record%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chatBar_recordSelected%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\checkbox_checked%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\checkbox_unchecked%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contact_detail%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\error%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\error_7%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\group_invitee_delete%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\messageSendFail%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smiley_add_btn_nor%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smiley_add_btn_pressed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smiley_minus_btn_nor%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smiley_minus_btn_pressed%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\success%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\success_7%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RekTec.Contacts\RekTec.Contacts.csproj">
+      <Project>{F595C2F6-7F8C-43C7-9938-BD38D8F04094}</Project>
+      <Name>RekTec.Contacts</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Corelib\RekTec.Corelib.csproj">
+      <Project>{A0EB2501-9DF4-46F9-B105-E7EBBE76D6FA}</Project>
+      <Name>RekTec.Corelib</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Messages\RekTec.Messages.csproj">
+      <Project>{2A7EB7F5-AA2A-4448-ABEA-7728B4DDD770}</Project>
+      <Name>RekTec.Messages</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\agsXMPP.MT\agsXMPP.csproj">
+      <Project>{449286A5-FEFA-43F2-A9B4-E8FDC20CA256}</Project>
+      <Name>agsXMPP</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.MyProfile\RekTec.MyProfile.csproj">
+      <Project>{E73B6F0E-FA3F-4E96-B75A-483E23E42BA7}</Project>
+      <Name>RekTec.MyProfile</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

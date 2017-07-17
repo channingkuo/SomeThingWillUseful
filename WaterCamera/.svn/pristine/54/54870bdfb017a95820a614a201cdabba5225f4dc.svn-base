@@ -1,0 +1,71 @@
+using Foundation;
+using RekTec.Contacts.Services;
+using RekTec.Corelib.Configuration;
+using RekTec.Corelib.Utils;
+using RekTec.Messages.PushNotification.Services;
+using RekTec.MyProfile.Services;
+using RekTec.Version.Services;
+using RekTec.Application.Views;
+using UIKit;
+using RekTec.Chat.Service;
+
+namespace RekTec.Application.App
+{
+	public class AppDelegate : UIApplicationDelegate
+	{
+		private UIWindow _window;
+		private PushService _pushService;
+
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+		{
+			FileSystemUtil.Disabled_iCloudBackup ();
+
+			_window = new UIWindow (UIScreen.MainScreen.Bounds);
+
+			var nav = new UINavigationController (new HomeViewController ());
+
+			AlertUtil.Initialize (nav);
+			UiStyleSetting.Initialize (app, nav);
+
+			_window.RootViewController = nav;
+			_window.MakeKeyAndVisible ();
+		
+			if (string.IsNullOrEmpty (GlobalAppSetting.XrmWebApiBaseUrl)) {
+				GlobalAppSetting.XrmWebApiBaseUrl = "https://mhms.homeinns.com/";
+			}
+
+			_pushService = new PushService ();
+			_pushService.RegisterNotification (app, options);
+			_pushService.HandleRemoteNotification (app, options);
+			_pushService.SetBadge (app, 0);
+            
+			return true;
+		}
+
+		public override void ReceivedRemoteNotification (UIApplication application, NSDictionary userInfo)
+		{
+			_pushService.HandleRemoteNotification (application, userInfo);
+		}
+
+		public override void RegisteredForRemoteNotifications (UIApplication application, NSData deviceToken)
+		{
+			_pushService.RegisterDeviceToken (application, deviceToken);
+		}
+
+		public override void WillEnterForeground (UIApplication application)
+		{
+			_pushService.SetBadge (application, 0);
+			if (AuthenticationService.IsLogOn ()) {
+				ContactsService.StartSyncContact ();
+			}
+			ChatClient.WillEnterForeground ();
+		}
+
+		public override void DidEnterBackground (UIApplication application)
+		{
+			ContactsService.StopSyncContact ();
+			ChatClient.DidEnterBackground ();
+		}
+	}
+}
+

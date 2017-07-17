@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{5A427701-7CDD-4A7F-AC08-8561F775DFB0}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RekTec.App.Std</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <AssemblyName>RekTecAppStd</AssemblyName>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <AssemblyName>RekTecAppStd</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <AssemblyName>HomeinnsHMS</AssemblyName>
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignProvision>b173f743-8845-4594-a25b-86f086346ee1</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
+    <AssemblyName>RekTecAppAo</AssemblyName>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>True</BuildIpa>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <AssemblyName>RekTecAppAo</AssemblyName>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <CodesignProvision>eb864f80-d4a9-410b-be42-d9b9d9c8b343</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <AssemblyName>RekTecAppAo</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entitlements.plist" />
+    <Content Include="PushConfig.plist">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RekTec.Application\RekTec.Application.csproj">
+      <Project>{D79D6688-C641-4045-96D5-3977C043BD04}</Project>
+      <Name>RekTec.Application</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\RekTec.Corelib\RekTec.Corelib.csproj">
+      <Project>{A0EB2501-9DF4-46F9-B105-E7EBBE76D6FA}</Project>
+      <Name>RekTec.Corelib</Name>
+      <IsAppExtension>False</IsAppExtension>
+      <IsWatchApp>False</IsWatchApp>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_checkbox_off%402x.png" />
+    <BundleResource Include="Resources\ic_checkbox_on%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-667h%402x.png" />
+    <BundleResource Include="Resources\Default-736h%403x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-72.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\_blank.html" />
+    <BundleResource Include="Resources\application_normal%402x.png" />
+    <BundleResource Include="Resources\application_selected%402x.png" />
+    <BundleResource Include="Resources\avatar_notice%402x.png" />
+    <BundleResource Include="Resources\avatar_reminer%402x.png" />
+    <BundleResource Include="Resources\avatar_task%402x.png" />
+    <BundleResource Include="Resources\contact_normal%402x.png" />
+    <BundleResource Include="Resources\contact_selected%402x.png" />
+    <BundleResource Include="Resources\department%402x.png" />
+    <BundleResource Include="Resources\login_password.png" />
+    <BundleResource Include="Resources\login_setting.png" />
+    <BundleResource Include="Resources\login_user.png" />
+    <BundleResource Include="Resources\mail%402x.png" />
+    <BundleResource Include="Resources\message_normal%402x.png" />
+    <BundleResource Include="Resources\message_selected%402x.png" />
+    <BundleResource Include="Resources\phone%402x.png" />
+    <BundleResource Include="Resources\setting%402x.png" />
+    <BundleResource Include="Resources\setting_normal%402x.png" />
+    <BundleResource Include="Resources\setting_selected%402x.png" />
+    <BundleResource Include="Resources\no_message.png" />
+    <BundleResource Include="Resources\login_top.png" />
+    <BundleResource Include="Resources\www\index.html" />
+    <BundleResource Include="Resources\www\asset\img\SWgarbage.png" />
+    <BundleResource Include="Resources\www\asset\img\bluemark.png" />
+    <BundleResource Include="Resources\www\asset\img\check_room.png" />
+    <BundleResource Include="Resources\www\asset\img\clean.png" />
+    <BundleResource Include="Resources\www\asset\img\clean_report.png" />
+    <BundleResource Include="Resources\www\asset\img\comb.png" />
+    <BundleResource Include="Resources\www\asset\img\cup.png" />
+    <BundleResource Include="Resources\www\asset\img\delete_photo.png" />
+    <BundleResource Include="Resources\www\asset\img\empty.png" />
+    <BundleResource Include="Resources\www\asset\img\finishedClean.png" />
+    <BundleResource Include="Resources\www\asset\img\flow.png" />
+    <BundleResource Include="Resources\www\asset\img\item.png" />
+    <BundleResource Include="Resources\www\asset\img\lBgarbage.png" />
+    <BundleResource Include="Resources\www\asset\img\leave.png" />
+    <BundleResource Include="Resources\www\asset\img\loading.gif" />
+    <BundleResource Include="Resources\www\asset\img\lock.png" />
+    <BundleResource Include="Resources\www\asset\img\login_checkbox_off.png" />
+    <BundleResource Include="Resources\www\asset\img\login_checkbox_on.png" />
+    <BundleResource Include="Resources\www\asset\img\login_setting.png" />
+    <BundleResource Include="Resources\www\asset\img\login_top.png" />
+    <BundleResource Include="Resources\www\asset\img\login_user.png" />
+    <BundleResource Include="Resources\www\asset\img\map_refresh.png" />
+    <BundleResource Include="Resources\www\asset\img\photo.png" />
+    <BundleResource Include="Resources\www\asset\img\photo1.png" />
+    <BundleResource Include="Resources\www\asset\img\price_change.png" />
+    <BundleResource Include="Resources\www\asset\img\redivide.png" />
+    <BundleResource Include="Resources\www\asset\img\slippers.png" />
+    <BundleResource Include="Resources\www\asset\img\slippersB.png" />
+    <BundleResource Include="Resources\www\asset\img\soap.png" />
+    <BundleResource Include="Resources\www\asset\img\take_photo.png" />
+    <BundleResource Include="Resources\www\asset\img\toilet_paper.png" />
+    <BundleResource Include="Resources\www\asset\img\toothbrush.png" />
+    <BundleResource Include="Resources\www\asset\img\toothbrushB.png" />
+    <BundleResource Include="Resources\www\asset\img\toothpaste.png" />
+    <BundleResource Include="Resources\www\asset\img\water.png" />
+    <BundleResource Include="Resources\www\js\common.directives.js" />
+    <BundleResource Include="Resources\www\js\common.filters.js" />
+    <BundleResource Include="Resources\www\js\common.services.js" />
+    <BundleResource Include="Resources\www\js\common.startup.js" />
+    <BundleResource Include="Resources\www\js\module.controllers.js" />
+    <BundleResource Include="Resources\www\js\module.modules.js" />
+    <BundleResource Include="Resources\www\js\module.services.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular-animate.min.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular-ios9-uiwebview-patch.min.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular-resource.min.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular-sanitize.min.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular-ui-router.min.js" />
+    <BundleResource Include="Resources\www\lib\angular\js\angular.min.js" />
+    <BundleResource Include="Resources\www\lib\cache\js\cache-1.0.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component.js" />
+    <BundleResource Include="Resources\www\lib\echarts\config.js" />
+    <BundleResource Include="Resources\www\lib\echarts\echarts.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\bar.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\base.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\chord.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\eventRiver.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\force.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\funnel.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\gauge.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\heatmap.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\island.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\k.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\line.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\map.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\pie.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\radar.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\scatter.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\tree.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\treemap.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\venn.js" />
+    <BundleResource Include="Resources\www\lib\echarts\chart\wordCloud.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\axis.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\base.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\categoryAxis.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\dataRange.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\dataView.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\dataZoom.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\grid.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\legend.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\polar.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\roamController.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\timeline.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\title.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\toolbox.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\tooltip.js" />
+    <BundleResource Include="Resources\www\lib\echarts\component\valueAxis.js" />
+    <BundleResource Include="Resources\www\lib\echarts\data\Graph.js" />
+    <BundleResource Include="Resources\www\lib\echarts\data\KDTree.js" />
+    <BundleResource Include="Resources\www\lib\echarts\data\Tree.js" />
+    <BundleResource Include="Resources\www\lib\echarts\data\quickSelect.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layer\heatmap.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\Chord.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\EdgeBundling.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\Force.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\Tree.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\TreeMap.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\WordCloud.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\WordCloudRectZero.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\eventRiver.js" />
+    <BundleResource Include="Resources\www\lib\echarts\layout\forceLayoutWorker.js" />
+    <BundleResource Include="Resources\www\lib\echarts\theme\default.js" />
+    <BundleResource Include="Resources\www\lib\echarts\theme\infographic.js" />
+    <BundleResource Include="Resources\www\lib\echarts\theme\macarons.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\accMath.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\coordinates.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\date.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\ecAnimation.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\ecData.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\ecEffect.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\ecQuery.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\kwargs.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\ndarray.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\number.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\smartLogSteps.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\smartSteps.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoCoord.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\params.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\textFixed.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\an_hui_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\ao_men_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\bei_jing_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\china_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\chong_qing_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\fu_jian_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\gan_su_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\guang_dong_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\guang_xi_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\gui_zhou_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\hai_nan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\he_bei_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\he_nan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\hei_long_jiang_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\hu_bei_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\hu_nan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\ji_lin_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\jiang_su_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\jiang_xi_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\liao_ning_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\nei_meng_gu_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\ning_xia_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\qing_hai_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\shan_dong_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\shan_xi_1_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\shan_xi_2_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\shang_hai_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\si_chuan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\tai_wan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\tian_jin_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\world_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\xi_zang_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\xiang_gang_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\xin_jiang_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\yun_nan_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\geoJson\zhe_jiang_geo.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\encode.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\an_hui_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\ao_men_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\bei_jing_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\china_city.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\china_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\chong_qing_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\fu_jian_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\gan_su_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\guang_dong_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\guang_xi_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\gui_zhou_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\hai_nan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\he_bei_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\he_nan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\hei_long_jiang_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\hu_bei_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\hu_nan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\ji_lin_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\jiang_su_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\jiang_xi_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\liao_ning_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\nei_meng_gu_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\ning_xia_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\qing_hai_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\shan_dong_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\shan_xi_1_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\shan_xi_2_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\shang_hai_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\si_chuan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\tai_wan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\tian_jin_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\world_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\xi_zang_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\xiang_gang_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\xin_jiang_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\yun_nan_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\mapData\rawData\geoJson\zhe_jiang_geo.json" />
+    <BundleResource Include="Resources\www\lib\echarts\util\projection\albers.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\projection\mercator.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\projection\normal.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\projection\svg.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Candle.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Chain.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Cross.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\GaugePointer.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\HalfSmoothPolygon.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\HandlePolygon.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Icon.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\MarkLine.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Ribbon.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\Symbol.js" />
+    <BundleResource Include="Resources\www\lib\echarts\util\shape\normalIsCover.js" />
+    <BundleResource Include="Resources\www\lib\ionic\css\ionic.theme.css" />
+    <BundleResource Include="Resources\www\lib\ionic\fonts\ionicons.eot" />
+    <BundleResource Include="Resources\www\lib\ionic\fonts\ionicons.svg" />
+    <BundleResource Include="Resources\www\lib\ionic\fonts\ionicons.ttf" />
+    <BundleResource Include="Resources\www\lib\ionic\fonts\ionicons.woff" />
+    <BundleResource Include="Resources\www\lib\ionic\js\ionic-angular.min.js" />
+    <BundleResource Include="Resources\www\lib\ionic\js\ionic.min.js" />
+    <BundleResource Include="Resources\www\lib\lodash\js\lodash.min.js" />
+    <BundleResource Include="Resources\www\lib\require\require.min.js" />
+    <BundleResource Include="Resources\www\lib\zrender\Group.js" />
+    <BundleResource Include="Resources\www\lib\zrender\Handler.js" />
+    <BundleResource Include="Resources\www\lib\zrender\Layer.js" />
+    <BundleResource Include="Resources\www\lib\zrender\Painter.js" />
+    <BundleResource Include="Resources\www\lib\zrender\Storage.js" />
+    <BundleResource Include="Resources\www\lib\zrender\config.js" />
+    <BundleResource Include="Resources\www\lib\zrender\macro.js" />
+    <BundleResource Include="Resources\www\lib\zrender\zrender.js" />
+    <BundleResource Include="Resources\www\lib\zrender\animation\Animation.js" />
+    <BundleResource Include="Resources\www\lib\zrender\animation\Clip.js" />
+    <BundleResource Include="Resources\www\lib\zrender\animation\easing.js" />
+    <BundleResource Include="Resources\www\lib\zrender\dep\excanvas.js" />
+    <BundleResource Include="Resources\www\lib\zrender\dep\excanvas2.js" />
+    <BundleResource Include="Resources\www\lib\zrender\dep\excanvas3.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Bar.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Base.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Bubble.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\DynamicLine.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Ring.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Spin.js" />
+    <BundleResource Include="Resources\www\lib\zrender\loadingEffect\Whirling.js" />
+    <BundleResource Include="Resources\www\lib\zrender\mixin\Eventful.js" />
+    <BundleResource Include="Resources\www\lib\zrender\mixin\Transformable.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Base.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\BezierCurve.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Circle.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Droplet.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Ellipse.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Heart.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Image.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Isogon.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Line.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Path.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Polygon.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Polyline.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Rectangle.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Ring.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Rose.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Sector.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\ShapeBundle.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Star.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Text.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\Trochoid.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\util\PathProxy.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\util\dashedLineTo.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\util\smoothBezier.js" />
+    <BundleResource Include="Resources\www\lib\zrender\shape\util\smoothSpline.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\area.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\color.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\computeBoundingBox.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\curve.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\env.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\event.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\guid.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\http.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\log.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\math.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\matrix.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\util.js" />
+    <BundleResource Include="Resources\www\lib\zrender\tool\vector.js" />
+    <BundleResource Include="Resources\www\module\.DS_Store" />
+    <BundleResource Include="Resources\www\module\home\applicationView.html" />
+    <BundleResource Include="Resources\www\module\home\login2View.html" />
+    <BundleResource Include="Resources\www\module\home\loginView.html" />
+    <BundleResource Include="Resources\www\module\home\serverAddressEditView.html" />
+    <BundleResource Include="Resources\www\module\home\testDialog.html" />
+    <BundleResource Include="Resources\www\module\passwordForget\.DS_Store" />
+    <BundleResource Include="Resources\www\module\passwordForget\passwordView.html" />
+    <BundleResource Include="Resources\www\module\passwordForget\resetPasswordView.html" />
+    <BundleResource Include="Resources\person_info.png" />
+    <BundleResource Include="Resources\person_info%402x.png" />
+    <BundleResource Include="Resources\person_info%403x.png" />
+  </ItemGroup>
+</Project>

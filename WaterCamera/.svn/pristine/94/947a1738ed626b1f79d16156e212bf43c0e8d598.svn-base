@@ -1,0 +1,255 @@
+#region 文件头部
+/**********
+Copyright @ 苏州瑞泰信息技术有限公司 All rights reserved. 
+****************
+作者 :carziertong
+日期 : 2015-04-09
+说明 : 设置页面
+****************/
+#endregion
+using System;
+using MonoTouch.Dialog;
+using UIKit;
+using RekTec.Corelib.Utils;
+using RekTec.Corelib.Configuration;
+using RekTec.Corelib.Views;
+using RekTec.MyProfile.Services;
+using RekTec.MyProfile.ViewModels;
+
+namespace RekTec.MyProfile.Views
+{
+	/// <summary>
+	/// 设置页面
+	/// </summary>
+	public class MyProfileViewController : DialogViewController
+	{
+		public Action OnLogoutButtonClick;
+
+		RootElement _root;
+		ProfileElement _avatarElement;
+		//StyledStringElement _departmentElement, _mailElment, _phoneElement, _settingElement;
+		StyledStringElement _departmentElement, _settingElement;
+		UIActionSheet _avatarChooseMenu;
+		UserInfoViewModel _userInfo;
+		string _img;
+		private UIViewBuilder _builder;
+
+		public MyProfileViewController (RootElement r)
+			: base (UITableViewStyle.Grouped, r, true)
+		{
+			_root = r;
+			this.View.BackgroundColor = UiStyleSetting.ViewControllerColor;
+
+			try {
+				_root.Clear ();
+				_userInfo = new UserInfoViewModel ();
+
+				_avatarElement = new ProfileElement (AuthenticationService.CurrentUserInfo.UserName, AuthenticationService.CurrentUserInfo.UserCode, UITableViewCellStyle.Subtitle) {
+					Accessory = UITableViewCellAccessory.DisclosureIndicator
+				};
+				_avatarElement.BackgroundColor = UIColor.White;
+				_root.Add (new[] { new Section () { _avatarElement } });
+
+				_departmentElement = new StyledStringElement ("所属部门", _userInfo.BusinessUnitName);
+				_departmentElement.Image = UIImage.FromFile ("department.png");
+				_departmentElement.BackgroundColor = UIColor.White;
+
+				#if DEBUG
+				/*_mailElment = new StyledStringElement ("电子邮箱", _userInfo.EmailAddress);
+				_mailElment.Image = UIImage.FromFile ("mail.png");
+				_mailElment.BackgroundColor = UIColor.White;
+
+				_phoneElement = new StyledStringElement ("联系电话", _userInfo.Phone) {
+					Accessory = UITableViewCellAccessory.DisclosureIndicator
+				};
+				_phoneElement.Image = UIImage.FromFile ("phone.png");
+				_phoneElement.BackgroundColor = UIColor.White;*/
+				#endif
+
+				//_root.Add (new[] { new Section () { _departmentElement, _mailElment, _phoneElement } });
+				//_root.Add (new[] { new Section () { _departmentElement } });
+
+				_settingElement = new StyledStringElement ("系统设置");
+				_settingElement.Image = UIImage.FromFile ("setting.png");
+				_settingElement.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+				_settingElement.BackgroundColor = UIColor.White;
+				_root.Add (new[] { new Section () { _departmentElement, _settingElement } });
+                    
+				_avatarChooseMenu = new UIActionSheet ();
+				_avatarChooseMenu.AddButton ("拍照");
+				_avatarChooseMenu.AddButton ("选取照片");
+				_avatarChooseMenu.AddButton ("取消");
+
+				_avatarChooseMenu.CancelButtonIndex = 2;
+               
+				BindUiEvent ();
+			} catch (Exception ex) {
+				AlertUtil.Error (ex.Message);
+			}
+		}
+
+		/// <summary>
+		/// 错误处理
+		/// </summary>
+		private bool HandleError (string msg)
+		{
+			AlertUtil.Error (msg);
+			return true;
+		}
+
+		/// <summary>
+		/// 页面加载时
+		/// </summary>
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			_builder = new UIViewBuilder (this.View);
+			_builder.SetTableViewStyle (TableView);
+		}
+
+		/// <summary>
+		/// 页面将要出现时
+		/// </summary>
+		/// <param name="animated">If set to <c>true</c> animated.</param>
+		public async override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+			_avatarElement.Image = UserInfoViewModel.DefaultAvatar;
+			_avatarElement.Caption = AuthenticationService.CurrentUserInfo.UserName;
+			_avatarElement.Value = AuthenticationService.CurrentUserInfo.UserCode;
+
+			try {
+				//从接口获取当前人员信息
+				_userInfo = await UserService.GetCurrentUserInfo ();
+				LoadUiData ();
+			} catch (Exception ex) {
+				AlertUtil.Error (ex.Message);
+			}
+
+			ErrorHandlerUtil.Subscribe (HandleError);
+
+		}
+
+		/// <summary>
+		/// 页面将要消失的时
+		/// </summary>
+		/// <param name="animated">If set to <c>true</c> animated.</param>
+		public override void ViewWillDisappear (bool animated)
+		{
+			ViewDidDisappear (animated);
+			ErrorHandlerUtil.UnSubscribe (HandleError);
+		}
+
+		/// <summary>
+		/// 加载数据
+		/// </summary>
+		private async void LoadUiData ()
+		{
+			try {
+				//从接口获取当前人员头像
+				_img = await UserService.GetCurrentUserAvatar (GlobalAppSetting.UserId);
+				if (string.IsNullOrWhiteSpace (_img))
+					_img = string.Empty;
+                
+				_avatarElement.Image = string.IsNullOrWhiteSpace (_img.Replace ('"', ' ').Trim ()) ? UserInfoViewModel.DefaultAvatar : ImageUtil.ConvertBase64String2Image (_img.Replace ('"', ' ').Trim ());
+				_avatarElement.Caption = _userInfo.UserName;
+				_avatarElement.Value = _userInfo.UserCode;
+				_departmentElement.Value = _userInfo.BusinessUnitName;
+				//_mailElment.Value = _userInfo.EmailAddress;
+				//_phoneElement.Value = _userInfo.Phone;
+
+               
+				//            _isNotifyedElement.Value = ChatAppSetting.IsNotified;
+				//            _isVoiceElement.Value = ChatAppSetting.IsNotifiedVoice;
+				//            _isBeepElement.Value = ChatAppSetting.IsNotifiedBeep;
+
+				ReloadData ();
+			} catch (Exception ex) {
+				ErrorHandlerUtil.ReportException (ex);
+			}
+		}
+
+		/// <summary>
+		/// 帮定控件的点击事件
+		/// </summary>
+		private void BindUiEvent ()
+		{
+			_avatarElement.Tapped += () => {
+				//解决ios7下actionsheet被tabbar遮挡
+				_avatarChooseMenu.ShowInView (UIApplication.SharedApplication.KeyWindow);
+			};
+
+			_avatarChooseMenu.Clicked += (sender, e) => {
+				var buttonIndex = (int)e.ButtonIndex;
+				if (buttonIndex == 0)
+					CameraUtil.TakePicture (this, async (image) => {
+						try {
+							var base64 = ImageUtil.ConvertImage2Base64String (image, 4F, 80F);
+							await UserService.UpdateAvatar (
+								new UserAvatarViewModel {
+									ObjectId = GlobalAppSetting.UserId,
+									FileName = new Guid ().ToString (),
+									FileBase64Content = base64,
+									moduleType = "SystemUser"
+								});
+							//							ChatClient.CurrentUserContact.AvatarImageBase64String = base64;
+							//							ChatDataRepository.AddOrUpdate (ChatClient.CurrentUserContact);
+							LoadUiData ();
+						} catch (Exception ex) {
+							AlertUtil.Error (ex.Message);
+						}
+					}, true);
+				else if (buttonIndex == 1)
+					CameraUtil.SelectPicture (this, async (image) => {
+						try {
+							var base64 = ImageUtil.ConvertImage2Base64String (image, 4F, 80F);
+							await UserService.UpdateAvatar (
+								new UserAvatarViewModel {
+									ObjectId = GlobalAppSetting.UserId,
+									FileName = new Guid ().ToString (),
+									FileBase64Content = base64,
+									moduleType = "SystemUser"
+								});
+							//							ChatClient.CurrentUserContact.AvatarImageBase64String = base64;
+							//							ChatDataRepository.AddOrUpdate (ChatClient.CurrentUserContact);
+
+							LoadUiData ();
+						} catch (Exception ex) {
+							AlertUtil.Error (ex.Message);
+						}
+					}, true);
+			};
+			#if DEBUG
+			/*_phoneElement.Tapped += () => {
+				var c = new MyProfileEditViewController (new RootElement ("联系电话"), "修改电话", _phoneElement.Value);
+				NavigationController.PushViewController (c, true);
+			};*/
+			#endif
+			_settingElement.Tapped += () => {
+				var c = new SystemSettingViewController (new RootElement ("设置") { UnevenRows = true });
+				c.OnLogoutButtonClick = this.OnLogoutButtonClick;
+				NavigationController.PushViewController (c, true);
+			};
+			//			_logoutButton.Tapped += () => {
+			//				ChatClient.Logout ();
+			//				if (ParentViewController != null && ParentViewController is UITabBarController) {
+			//					(ParentViewController as UITabBarController).SelectedIndex = 0;
+			//				}
+			//			};
+
+			//            _isNotifyedElement.ValueChanged += (object sender, EventArgs e) => {
+			//                ChatAppSetting.IsNotified = _isNotifyedElement.Value;
+			//            };
+			//                
+			//            _isVoiceElement.ValueChanged += (object sender, EventArgs e) => {
+			//                ChatAppSetting.IsNotifiedVoice = _isVoiceElement.Value;
+			//            };
+			//
+			//            _isBeepElement.ValueChanged += (object sender, EventArgs e) => {
+			//                ChatAppSetting.IsNotifiedBeep = _isBeepElement.Value;
+			//            };
+
+		}
+	}
+}
+

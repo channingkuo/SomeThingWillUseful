@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.8.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RekTec.Chat.Common.MT/DataRepository/ChatDataRepository.cs">
+    <Files>
+      <File FileName="RekTec.Chat.Common.MT/Services/ChatClient.cs" Line="30" Column="30" />
+      <File FileName="RekTec.Chat.Common.MT/DataRepository/ChatDataRepository.cs" Line="89" Column="89" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

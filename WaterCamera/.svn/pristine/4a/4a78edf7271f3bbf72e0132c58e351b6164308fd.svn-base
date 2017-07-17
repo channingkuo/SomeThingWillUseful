@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.8.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RekTec.Chat.Common.MT/Services/ChatFileMessageService.cs">
+    <Files>
+      <File FileName="RekTec.Chat.Common.MT/Services/ChatConnectionService.cs" Line="54" Column="54" />
+      <File FileName="RekTec.Chat.Common.MT/Services/ChatFileMessageService.cs" Line="18" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/joe/ChatClient-IOS/RekTec.Mobile.Client.IOS/Views/ContactChoose/ContactChooseViewController.cs" line="89" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="RekTec.Mobile.Client.IOS/Views/Chat/ChatViewController.cs" line="455" offsetX="754" offsetY="2805" expression="msg" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
