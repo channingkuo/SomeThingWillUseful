@@ -1,0 +1,59 @@
+iOS照片选择器（可以多选）
+http://code.cocoachina.com/view/131643
+
+banchichen/TZImagePickerController
+https://github.com/banchichen/TZImagePickerController
+
+Code4App网站
+http://www.code4app.com/category/navigationbar
+
+iOS实现一个应用去handle另一个应用（一个App打开另外一个App）
+http://www.cnblogs.com/dingjiwoniu-blogs/p/5171377.html
+
+iOS10 注册极光推送(干货)
+http://m.blog.csdn.net/Cloud_Pro/article/details/52574637
+
+swift 里面tableview的cell代码创建方法
+http://blog.csdn.net/syg90178aw/article/details/46981277
+
+Swift - 操作SQLite数据库（引用SQLite3库）
+http://www.hangge.com/blog/cache/detail_645.html
+
+iOS蓝牙开发，数据发送遇到问题
+https://segmentfault.com/q/1010000002770233
+
+iOS 蓝牙发送数据 编码格式问题
+https://segmentfault.com/q/1010000004078414#answers-title
+
+3D Touch in Swift: Implementing Peek and Pop
+https://dzone.com/articles/3d-touch-in-swift-implementing-peek-pop
+
+Swift - tableView的单元格多选功能的实现（获取多选值、多选删除）
+http://www.hangge.com/blog/cache/detail_1320.html
+
+Swift - 文件，文件夹操作大全
+http://www.hangge.com/blog/cache/detail_527.html
+
+IOS(swift)-数据存储 · 用NSUserDefaults存储配置信息
+http://www.jianshu.com/p/d59b004b5ea7
+
+史上最全的 iOS 各种设备信息获取总结
+https://juejin.im/entry/58d4db16b123db3f6b649c53
+
+Swift - 使用NotificationCenter发送通知，接收通知
+http://www.hangge.com/blog/cache/detail_828.html
+
+xamarin组件分享
+http://xamarin.club/bindshare/
+
+使用Owin中间件搭建OAuth2.0认证授权服务器
+http://ju.outofmemory.cn/entry/99935
+
+OpenShare实现(1)：why
+http://www.gfzj.us/series/openshare/
+
+iOS8毛玻璃效果-UIView模糊效果
+http://blog.csdn.net/werctzzz/article/details/42103901
+
+iOS开发-检测用户截屏, 并获取所截图片
+http://blog.csdn.net/hitwhylz/article/details/38386979
